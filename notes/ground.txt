@@ -1,0 +1,75 @@
+Locations on Bottom Floor
+--------
+Outside
+    You are outside a building 
+    It it raining
+    There are two revolving doors
+
+    * you can type INV to see your current inventory *
+
+    WALK / LEAVE
+        * its pouring you dont want to get wet *
+    GO INSIDE
+        * you enter the building *
+            --> Lobby
+
+Lobby
+    * You are in a lobby of a building,
+    There are two revolving doors,
+    a secretary at a desk
+    and a hallway *
+
+    GO OUTSIDE
+        * you go through the spinning door *
+            --> Outside
+    GO HALLWAY
+        * you walk toward the hallway * 
+            -- > Hallway
+
+    TALK TO SECRETARY
+        * you walk up to the desk *
+        BUILDING
+            - you ask about the building
+            she says "this is 731 Lexington
+                    Bloomberg World Headquarters
+        BADGE
+            - you ask her about a badge
+            - she prints you one 
+            * badge is now in inventory *
+
+Lobby Hallway
+    In the hallway there is a large wooden sculpture
+    A women is standing near a cart
+    There are some elevators
+
+    INSPECT WOMAN
+        * you look at the woman in the hallway
+          she seems really happy and is standing
+          next to a cart filled with coats
+
+    TALK TO WOMAN 
+        - You approach the woman and she says 
+            "Hi are you looking to donate your coat?"
+            DONATE COAT
+            NO
+                "Are you sure? you will get BOB Hours"
+            DONATE COAT
+                "Ok, just drop it in this bin here"
+                * coat removed from inventory *
+            WALK AWAY
+
+    INSPECT SCULPTURE
+        * the sculpture is the length of the hallway
+            and seems to be a bunch of giant wood bowls
+    TOUCH SCULPTURE
+        * you reach out and touch the sculpture *
+        * a security guard comes and stops you * 
+        GAMEOVER
+
+    GOTO ELEVATORS
+        * you start walking to the elevator *
+        * a guard stops you and asks for ID *
+
+        if you have badge:
+            * you take out your badge and show the guard *
+            --> 6th floor

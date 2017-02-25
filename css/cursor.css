@@ -1,0 +1,36 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	height: 99%;
+}
+
+textarea#setter  {
+	left: -1000px;
+	position: absolute;
+	display:none;
+}
+
+.cursor {
+	font-size: 12px;
+	background-color: red;
+	color: red;
+	position: relative;
+	opacity: 0.5;
+}
+
+#terminal {
+	margin: 8px;
+	cursor: text;
+	height: 500px;
+    overflow: auto;
+	color: white;
+}
+
+#writer {
+	font-family: cursor, courier;
+	font-weight: bold;
+}
+
+#getter {
+    margin: 5px;
+}

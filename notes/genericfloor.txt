@@ -1,0 +1,7 @@
+//This will be for any floor you can take the stairs to that isnt one of the special floors
+
+
+You are on <FLOOR>
+
+GO UP
+GO DOWN

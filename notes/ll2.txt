@@ -1,0 +1,96 @@
+LL2
+
+
+You get off the elevator
+Theres a hallway on the right that leads around the corner
+
+//second time you come down
+You can also see the entrance to the Bike Room
+
+GO UP
+GO DOWN
+
+//isnt autocompleted 
+GO BIKE ROOM
+
+	You enter the bike room and look around
+	you see a couple nice bikes and a bunch of gym bags
+
+	//if you read your email
+	You see the bag with the name .... embroidered on it
+
+	//if you didnt read your email
+	SEARCH 
+	after searching through a bunch of bags, you find one with the name .... and sure enough theres socks in there 
+
+
+	Opening it you see the socks
+	* Bloomberg Socks have been added to your inventory *
+
+GO RIGHT
+	as you round the corner you see another long hallway lit with long flourescent bulbs
+
+	you can see a sign for 
+	"MAILROOM / SDSK" on the left and 
+	"PANTRY" forward
+
+	GO MAILROOM
+		you walk up to the counter and there is a man standing there sorting letters
+
+		behind him you can see a man putting boxes into an incinerator
+
+		"Hi how can I help you?"
+		BOXES
+			"We dont allow personal mail to be delivered, so we have to destroy all of those that get sent here"
+		LETTERS
+			"At some point ill go and deliver these but eh"
+		BUNIT
+			"Oh, sure, ill get you a bunit, but its been a while since my last break
+			can you go up to 6 and grab me a cup
+			or chocolate covered almonds, ill get your bunit ready in the meantime"
+
+			//if you come back empty handed
+			"Well i upheld my part of the deal, 
+			so..." * he walks away grabbing another box of letters *
+
+			//if you come back with the stuff
+			"oh sweet, i didnt think youd come through... uh one sec, lemme grab you a bunit"
+
+			* BUnit added to inventory * 
+
+			"All you have to do is swipe it with a finger and itll let you in"
+
+	GO PANTRY
+		this pantry is very long and has a bunch of computer labs off of it
+
+		this seems to be where most people eat lunch
+
+		you can see the sign and desk where you can go donate blood
+
+	GO DONATE BLOOD
+
+		you walk up to the desk and sign up to donate
+
+		"Ok, you're all done, if youd like a tshirt, go up and talk to hr on 17"
+
+
+When you go to leave the floor you will see
+	
+	Through the glass wall on your right you can 
+	see bikes, helmets and bags, weird you didnt 
+	notice that before
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

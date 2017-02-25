@@ -1,0 +1,81 @@
+
+
+For each situation we can autocomplete
+
+
+
+Non logged in functions
+
+INV ----- shows your current inventory
+has <item> (equiped) if equiped
+
+BMAP
+------
+shows your current position on the map
+only what youve discovered
+but has checkpoints
+
+PTOE ------- shows the picture
+
+BBOB
+-------
+shows the two bbob events that are open to do for the tshirt puzzle
+
+To log into the terminal,
+you need a bunit
+
+FON <persons name>
+--------
+you can fon ME
+	- we will make a genderless
+	- from x school
+	- linkedin 
+you can fon me
+you can fon mike bbg
+
+
+APPT - shows a bunch of random appts
+MSG - gives clues to the puzzles
+	"HEY" - 
+		"Hey I heard you were looking for socks, 
+		i think a guy on my floor left some in his gym bag on LL2"
+	"Blood Donation Today" - 
+		"Come on down to LL2 and donate blood
+
+	if you do , you can get a bloomberg tshirt from hr on 17"
+
+
+
+
+
+Functions
+---------
+
+APPT
+    - need to know when the party is
+MSG
+    - will give some info, and i think you can email
+RICH 
+    - Literally just show the screenshot i guess 
+WEI 
+    -  
+GP 
+    - 
+FON 
+    -  
+HL 
+    - 
+BMAP
+    - List of bloomberg offices
+TOP - 
+INV 
+    - not real
+    - will show your current invetory
+
+
+
+
+
+
+
+

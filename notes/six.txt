@@ -1,0 +1,122 @@
+Locations on Sixth floor
+---------
+
+LOWER ELEVATOR BANK
+	You exit the elevator and are on the 6th floor
+	You can see an info booth ahead
+
+	GO DOWN
+		--> Lobby Hallway
+	GO UP
+		* these elevators only seem to go down *
+
+	GO INFO BOOTH
+		--> INFO BOOTH
+
+
+INFO BOOTH
+-------
+
+	@@@FIRST TIME@@@
+	You walk toward the info booth and the building splits ahead of you
+
+	The lady at the booth tells you 
+		" The elevators to go up are to the left"
+		" The 6th floor pantry is to the right"
+	BACK
+	--> LOWER ELEVATOR BANK
+	LEFT
+	--> UPPER ELEVATOR BANK
+	RIGHT
+	--> PANTRY
+
+ 	@@@ after poster @@@
+ 		"hey it looks like you might be interested in getting that umbrella"
+
+ 	@@@ ANY @@@
+ 	"Let me know if you need any help finding the items"
+ 	Hat
+ 	- "oh you can get the hat from Mike Bloombergs desk"
+ 	- "just FON him to see where he sits"
+	TShirt 
+	- "for that item you will need to talk to hr on 17"
+	Pajama Pants 
+	- "you might have some luck talking to the training team on 22"
+	Socks
+	- "hmm, maybe check with the SDSK team on LL2"
+
+UPPER ELEVATOR BANK
+-------
+ 
+Walking to the left you see an almost identical elevator bank, however these are labeled
+14-20 and 23-29
+
+// you can go up and down with these
+// we'll deal with how that works later
+
+If you type a floor thats not an elevator floor:
+
+* you get in the and press the <FLOOR> button *
+* it doesnt light up * 
+* you notice a sign above the buttons says "Elevator stops on circled Floors" *
+
+LOOK CIRCLED
+------------
+LL2, 6, 15, 17, 20
+//based on which elevator
+23, 26, 29
+
+// if they press a circled, bring them to that floor
+
+PANTRY
+-------
+
+You walk toward the pantry and see:
+ // insert pantry description
+ // horseshoe
+
+ Theres also a large staircase with guard and a poster set up
+
+
+ STAIRCASE
+ 	You approach the guards and they say:
+ 		7EMPR is closed for the costume contest
+ 		Without a costume we cant let you in
+
+ 	Read the poster kid...
+
+ 	// hopefully the player will think ah i see
+
+ 	// if they have hat, tshirt, pants, socks, badge, bunit
+		--> 7E MPR
+
+ POSTER
+ 	TONIGHT IS BLOOMBERGS ANNUAL 
+ 	HALLOWEEN COSTUME PARTY
+ 	5-8PM
+
+ 	Prize for first place - 
+ 		//come up with something good
+ 	Prize for second place - 
+ 		//come up with something good
+ 	Prize for third place - 
+ 		//come up with something good
+
+ 	HOW DO I PARTICIPATE?
+
+ 	JUST SHOW UP!  If you are IN the 7EMPR at the time of judging, you are IN the contest! 
+
+ 	FORGOT A COSTUME?
+
+ 	Collect all the Bloomberg swag items and you can enter the raffle for a Bloomberg Umbrella!
+
+ 	Collect
+ 	  Hat ***** TShirt ***** Pajama Pants ***** Socks
+
+
+// INSERT REST OF PANTRY HERE :)
+
+
+
+
+

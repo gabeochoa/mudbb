@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>bbgtest</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/cursor.css" type="text/css">
+</head>
+
+<body>
+
+    <div id='function-bar'>
+        <p class="white"> [] </p>
+    </div>
+
+    <form action="#" method="post">      
+    <div class="full-widthdiv">
+    <input class="boxsizingBorder" type="text" name="name" id="name" value="" tabindex="1" />    
+    </div>     
+    </form>    ​
+
+
+    <div id="terminal" onclick="$('setter').focus();">
+        <textarea type="text" id="setter" 
+        onkeydown="writeit(this, event);
+        moveIt(this.value.length, event)" 
+        onkeyup="writeit(this, event)" 
+        onkeypress="writeit(this, event);">
+        </textarea>
+        <div id="getter">
+            <span id="writer"></span><b class="cursor" id="cursor">B</b>
+        </div>
+    </div>
+
+    <div id='top-bar'>
+
+        <p class="white"> hello im white </p>
+    </div>
+
+    <p class="amber"> hello im amber </p>
+    <p class="green"> hello im green </p>
+    <p class="red"> hello im red </p>
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/projects.js"></script>
+
+</body>
+
+</html>

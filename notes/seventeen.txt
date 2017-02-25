@@ -1,0 +1,47 @@
+Seventeen
+
+
+ELEVATOR BANK
+-------------
+	Left down the hallway is the 17Fl pantry
+	Right leads to the stairs
+
+	GO DOWN
+	GO UP
+	STAIRS //GO RIGHT
+	GO PANTRY // GO LEFT
+
+	This pantry seems smaller than the others
+	Theres another hallway that leads to some desks
+
+
+	GO HR
+	//we have to figure out how they will walk there
+
+	you walk down the hallway and looks for the hr desks
+
+	you see one of the recruiters you recognize, 
+	she says "Hello, how can i help you"
+	TSHIRT/SHIRT
+
+	"ah have you completed a bbob event?"
+	YES
+		- if you are lying it doesnt matter
+		you can basically skip the puzzle i guess
+		"Sweet, let me grab you one"
+		* Bloomberg TShirt has been added to your inventory * 
+	NO
+		- "if you type "BBOB" it will list the 
+		current events you can do, complete one and come back and ill get you a shirt"
+
+	BBOB
+		will show the donate jacket
+		and shows donate blood
+
+
+
+
+
+
+
+
