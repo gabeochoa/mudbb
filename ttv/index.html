@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>bbgtest</title>   
+    <link href="css/cssConsole.css" type="text/css" rel="stylesheet">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <script src="js/jquery.js"></script>
+    <script src="js/cssConsole.js"></script>
+</head>
+<body>
+
+<!-- holds the entire screen-->
+<div id="screen">
+    <span> </span>
+    <!-- terminal input-->
+    <div id="inputbar"><div id="login"></div></div>
+    <span> </span>
+    <!-- two line / Menu to return -->
+    <button id="two-line" type="button">
+        &lt;Menu&gt; to Return
+    </button>
+    <!-- dynamic button bar -->
+    <div id="button-bar"></div>
+    <!-- the main body of the page -->
+    <div id="int-screen">
+        <span> my body</span>
+    </div>
+</div>
+
+    <!-- <script type="text/javascript">
+    // to defer the loading of stylesheets
+    // just add it right before the </body> tag
+    // and before any javaScript file inclusion (for performance)  
+    function loadStyleSheet(src){
+        if (document.createStyleSheet) document.createStyleSheet(src);
+        else {
+            var stylesheet = document.createElement('link');
+            stylesheet.href = src;
+            stylesheet.rel = 'stylesheet';
+            stylesheet.type = 'text/css';
+            document.getElementsByTagName('head')[0].appendChild(stylesheet);
+        }
+    }
+    loadStyleSheet("css/style.css")   
+    </script> -->
+
+
+    <script src="js/topbars.js"></script>
+</body>
+
+</html>
