@@ -8,14 +8,11 @@ $('#login').cssConsole({
     inputName:'login',
     charLimit: 50,
     onEnter: function(){
-        inp = $('.cssConsoleInput')[0]
-        process_input(inp.value)
-        inp.value = ""
+        inp = $('.cssConsoleInput')[0];
+        output = process(inp.value.toUpperCase());
+        inp.value = "";
+        $('#output').text(output);
 }});
-function process_input(input)
-{
-    console.log(input)
-}
 //end inputbar
 
 // two line
@@ -32,7 +29,7 @@ function set_two_line(sent)
 //button bar
 function proc_click(button_name)
 {
-    alert(button_name)
+    console.log(button_name)
 }
 function add_button(button) {
     var element = document.createElement("input");
