@@ -33,14 +33,12 @@ function invalid(inp){
 	for (var i = 0; i < validfuncs.length; i++) {
 		x = levenshtein(validfuncs[i], inp[0]);
 		if( x < validfuncs[i].length && (min == -1 || x < min)){
-			min = x
-			minw = validfuncs[i]
+			min = x; minw = validfuncs[i];
 		}
 	}
 	if(min != -1)	{
 		out += "Did you mean " + minw +"?<br>"
 	}
-
 	return out
 }
 
@@ -63,3 +61,4 @@ function process(input){
 	}
 	return invalid(spl);
 }
+
