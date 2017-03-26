@@ -81,7 +81,6 @@ function nextValidBlock(blocks, j)
 function addText(textToAdd){
 	var blocks = document.getElementById("grid").childNodes;
 	var j = 0;
-	console.log(textToAdd.split(""))
 	for (var i = 0; i < blocks.length; i++) {
 		setPixelText(blocks[i].id, " ");
 	}
