@@ -11,7 +11,9 @@ $('#login').cssConsole({
         inp = $('.cssConsoleInput')[0];
         output = process(inp.value.toUpperCase());
         inp.value = "";
-        $('#output').html(output);
+        addText(output);
+        //legacy -> ptag
+        //$('#output').html(output);
 }});
 //end inputbar
 

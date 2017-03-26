@@ -1,23 +1,52 @@
-
-var Game = { 
-	fps: 60,
-	flags: {
-
+var State = {
+	"start": false,
+	//Sorted by floor
+	"visited" : {
+		"ll2" : false,
+		"ground" : true,
+		"5" : false,
+		"6" : false,
+		"7" : false,
+		"17" : false,
+		"22" : false,
+		"29" : false
+	},
+	"puzzles":{
+		"badge": {
+			"getbadge": true
+		},
+		"pants": false,
+		"tshirt": false,
+		"pants": false,
+		"pants": false,
+		"pants": false
 	}
-};
-// Game.draw = function() {
 
-// };
-// Game.update = function() { 
-// 	console.log("update")
-// };
+}
 
-// Game.run = function() {
-//   Game.update();
-//   Game.draw();
-// };
+var Dialogue = {
+	"ll2" : {},
+	"ground": {},
+	"5" : {},
+	"6" : {},
+	"7" : {},
+	"17" : {},
+	"22" : {},
+	"29" : {}
+}
 
-// // Start the game loop
-// Game._intervalId = setInterval(Game.run, 1000 / Game.fps);
-// // To stop the game, use the following:
-// clearInterval(Game._intervalId);
+var Text = {
+	'startgame': "Welcome to the wonderful world of the terminal",
+	'falsestart': "You're already playing the game..."
+}
+
+
+function Player(){
+
+	this.location = "ground"
+}
+
+player = new Player()
+
+
+addText("Welcome to the game, Type \"START\" to start playing");

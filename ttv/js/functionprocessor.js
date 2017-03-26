@@ -17,18 +17,41 @@ var levenshtein = function(a, b){
     return m[b.length][a.length];
 };
 
+function startgame(inp){
+	if(State.start){
+		return Text['falsestart']
+	}
+	State.start = true
+	return Text['startgame']
+}
+
 function mapfunc(inp){
 	console.log("mapfunc");
-	return "mapfunc"
+	out =  "mapfunc"
+	out += "\n"
+	out += "You are on the "
+	out += player.location
+	out += " floor. "
+
+	return out
 }
 function gofunc(inp){
 	console.log("gofunc");
 	console.log(inp);
 	return "gofunc" + inp
 }
+function bbobfunc(inp){
+	console.log("bbobfunc");
+	return "bbobfunc"
+}
+
+function emptyfunc(){
+	console.log("emptyfunc")
+	return ""
+}
 
 function invalid(inp){
-	out = "The function "+inp[0]+" does not exist.<br>" ;
+	out = "The function "+inp[0]+" does not exist.\n" ;
 	min = -1, minw = "";
 	for (var i = 0; i < validfuncs.length; i++) {
 		x = levenshtein(validfuncs[i], inp[0]);
@@ -37,15 +60,19 @@ function invalid(inp){
 		}
 	}
 	if(min != -1)	{
-		out += "Did you mean " + minw +"?<br>"
+		out += "Did you mean " + minw +"?\n"
 	}
 	return out
 }
 
 validfunctions = {
+	"START": startgame,
 	"MAP": mapfunc,
-	"GO": gofunc
+	"GO": gofunc,
+	"BBOB": bbobfunc,
+	"": emptyfunc
 }
+
 validfuncs = []
 for (var p in validfunctions) {
 	validfuncs.push(p);
