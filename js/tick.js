@@ -16,9 +16,7 @@ var State = {
 var Text = {
 	'startgame': "Welcome to the wonderful world of the terminal",
 	'falsestart': "You're already playing the game...",
-	'poster': "TONIGHT IS BLOOMBERGS ANNUAL \n\
-	HALLOWEEN COSTUME PARTY\n\
-	5-8PM\n\
+	'poster': "TONIGHT IS BLOOMBERGS ANNUAL HALLOWEEN COSTUME PARTY : 5-8PM\n\
 	Prize for first place -\n\
 		//come up with something good\n\
  	Prize for second place -\n\
@@ -26,11 +24,8 @@ var Text = {
  	Prize for third place -\n\
  		//come up with something good\n\
  	HOW DO I PARTICIPATE?\n\
- 	\n\
  	JUST SHOW UP!  If you are IN the 7EMPR at the time of judging, you are IN the contest! \n\
- 	\n\
  	FORGOT A COSTUME?\n\
- 	\n\
  	Collect all the Bloomberg swag items and you can enter the raffle for a Bloomberg Umbrella!\n\
  	\n\
  	Collect\n\
@@ -163,11 +158,10 @@ function Player(){
 
 player = new Player()
 
-addText(Text['startgame'] + "\nType \"START\" to start playing");
+//addText(Text['startgame'] + "\nType \"START\" to start playing");
 
 
-
-
+addText(Text['poster'])
 
 
 

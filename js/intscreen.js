@@ -78,9 +78,8 @@ function nextValidBlock(blocks, j)
 	return j;
 }
 
-//TODO:
-// every once in a while
-// \n messes up the printing
+
+
 function addText(textToAdd){
 	if(textToAdd === undefined)
 	{
@@ -88,34 +87,31 @@ function addText(textToAdd){
 		return
 	}
 	var blocks = document.getElementById("grid").childNodes;
-	var j = 0;
+	
+	//clear the screen
 	for (var i = 0; i < blocks.length; i++) {
 		setPixelText(blocks[i].id, " ");
 	}
-	for (var i = 0; i < blocks.length; i++) {
-		//check to see if the next char is \n
-		if(textToAdd.charAt(j) == "\n")
-		{
-			//we need to move down then
-			i = (Math.floor(j/cols)+1)*cols-1;
-		}
 
+	//j is current loc in string to add
+	j=0
+	for (var x = 0; x < rows; x++) {
+	for (var y = 0; y < cols; y++) {
+		i = x*cols + y;//next pixel to change
+		letter = textToAdd.charAt(j++)
+		if(letter == '\n')
+		{
+			x++; //inc row 
+			y = -1; //reset xpos
+			continue
+		}
 		//check to see if we ran out of space
 		i = nextValidBlock(blocks, i);
 		// couldnt find an empty spot
 		if(i == -1){break;}
-
-		// fill the rest with empty space
-		if (j >= textToAdd.length){letter = " ";}
-		else{letter = textToAdd[j];}
-		
 		setPixelText(blocks[i].id, letter);
-
-		j++;
-	}
+	}}
 }
-
-
 
 
 
