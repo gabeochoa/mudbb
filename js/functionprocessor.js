@@ -89,21 +89,6 @@ function talkfunc(inp){
 	return "They aren't there.\n(Type \"TALK\" with no tail to print who you can talk to)."
 }
 
-function findin(listA, listB){
-	// console.log("findin")
-	// console.log(listA)
-	// console.log(listB)
-	for (var i = listA.length - 1; i >= 0; i--) {
-		for (var j = listB.length - 1; j >= 0; j--) {
-			if(listA[i].toLowerCase() == 
-			   listB[j].toLowerCase()){
-				return listB[j]
-			}
-		}
-	}
-	return undefined;
-}
-
 function actuallygo(newloc)
 {
 	player.back = player.location
@@ -206,13 +191,31 @@ function lookfunc(inp){
 	return lookingat;
 }
 
+function invfunc(inp){
+	out = "";
+	items = player.inventory
+	if(items.length == 0)
+	{
+		return "You have nothing in your inventory"
+	}
+
+	for (var i = 0; i < items.length; i++) {
+		out += "" + items[i]
+		out += ": "
+		out += Items[items[i]].description
+		out += "\n"
+	}
+	return out;
+}
+
 funcdescrip = {
 	"HELP": "Print the valid functions",
 	"MAP": "Prints where you are in the game",
-	"GO": "goes to a location, \"GO BACK\" will go to the last location you were before this room",
+	"GO/GOTO": "goes to a location, \"GO BACK\" will go to the last location you were before this room",
 	"TALK": "With no tail:    prints who is around to talk to\n With tail:    initiates conversation with someone", 
 	"INSPECT/LOOK": "if something is inspectable, will print more of a description of the object/person",
 	"LEAVE/EXIT": "Leave conversation with person",
+	"INV / INVENTORY": "Print the contents of your pockets.",
 	"BBOB": "bbobfunc",
 }
 validfunctions = {
@@ -220,12 +223,15 @@ validfunctions = {
 	"HELP": helpfunc,
 	"MAP": mapfunc,
 	"GO": gofunc,
+	"GOTO": gofunc,
 	"BBOB": bbobfunc,
 	"TALK": talkfunc, 
 	"LEAVE": leavefunc,
 	"EXIT": leavefunc,
 	"INSPECT": lookfunc,
 	"LOOK": lookfunc,
+	"INV": invfunc,
+	"INVENTORY": invfunc,
 	"": emptyfunc
 }
 

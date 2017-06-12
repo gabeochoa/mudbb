@@ -4,14 +4,49 @@ var DiagState = {
 		"visited": false,
 		"donated": false,
 		"want_to": undefined,
+	},
+	"lobby_secretary":{
+		"visited": false,
+		"badge_asked": false,
+		"badge_printed": false,
+		"confused": false
+	},
+	"info_booth":{
+		"visited": false,
 	}
 }
 
-function lobby_secretary(){
-
+function lobby_secretary_proc(inp){
+	console.log("lobby_secretary_proc")
+	console.log(inp)
+	//to set the internal state
+	match = findin(inp, ["BADGE"])
+	if(match === undefined){
+		//do nothing
+		DiagState.lobby_secretary.confused = true
+	}
+	DiagState.lobby_secretary.confused = false
+	if(match == "BADGE"){
+		DiagState.lobby_secretary.badge_asked = true
+	}
 }
+function lobby_secretary(){
+	if(!DiagState.lobby_secretary.visited){
+		DiagState.lobby_secretary.visited = true;
+		return "Hello. How can I help you?"
+	}
 
+	if(DiagState.lobby_secretary.confused){
+		return "I'm sorry. I don't understand"
+	}
 
+	if(DiagState.lobby_secretary.badge_asked){
+		DiagState.lobby_secretary.badge_printed = true
+		State.is_talking = false;
+		player.inventory.push("badge")
+		return "Ah. I'll print you a new one. \n * badge has been added to inventory *"
+	}
+}
 function lobby_woman_proc(inp){
 	console.log("lobby_woman_proc")
 	console.log(inp)
@@ -49,6 +84,7 @@ function lobby_woman(){
 	if(DiagState.lobby_woman.want_to){
 		State.puzzles.tshirt.coat_donated = true;
 		DiagState.lobby_woman.donated = true;
+		player.inventory.pop("coat")
 		//TODO remove from inventory
 		State.is_talking = false;
 		return "Ok just drop it in this bin here\n *coat removed from inventory*";

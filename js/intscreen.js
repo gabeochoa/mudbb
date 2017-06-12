@@ -78,6 +78,9 @@ function nextValidBlock(blocks, j)
 	return j;
 }
 
+//TODO:
+// every once in a while
+// \n messes up the printing
 function addText(textToAdd){
 	if(textToAdd === undefined)
 	{

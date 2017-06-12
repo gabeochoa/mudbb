@@ -1,6 +1,7 @@
 var State = {
 	"start": false,
 	"is_talking": false,
+	"seen_poster": false,
 	"puzzles":{
 		"badge": {
 			"getbadge": false
@@ -10,6 +11,30 @@ var State = {
 		},
 		"pants": false
 	}
+}
+
+var Text = {
+	'startgame': "Welcome to the wonderful world of the terminal",
+	'falsestart': "You're already playing the game...",
+	'poster': "TONIGHT IS BLOOMBERGS ANNUAL \n\
+	HALLOWEEN COSTUME PARTY\n\
+	5-8PM\n\
+	Prize for first place -\n\
+		//come up with something good\n\
+ 	Prize for second place -\n\
+ 		//come up with something good\n\
+ 	Prize for third place -\n\
+ 		//come up with something good\n\
+ 	HOW DO I PARTICIPATE?\n\
+ 	\n\
+ 	JUST SHOW UP!  If you are IN the 7EMPR at the time of judging, you are IN the contest! \n\
+ 	\n\
+ 	FORGOT A COSTUME?\n\
+ 	\n\
+ 	Collect all the Bloomberg swag items and you can enter the raffle for a Bloomberg Umbrella!\n\
+ 	\n\
+ 	Collect\n\
+ 	  Hat ***** TShirt ***** Pajama Pants ***** Socks",
 }
 
 var Loc = {
@@ -31,9 +56,10 @@ var Loc = {
 		"gofunc":{
 			"outside": "ground",
 			"hallway": "lobby-hallway",
+			"elevators": "lobby-elevators",
 		},
 		"talkfunc":{
-			"secretary": [lobby_secretary, undefined]
+			"secretary": [lobby_secretary, lobby_secretary_proc]
 		}
 	},
 	"lobby-hallway": {
@@ -51,30 +77,88 @@ var Loc = {
 			"woman": "You look at the woman in the hallway.\n She seems really happy and is standing next \n to a cart filled with coats.",
 			"sculpture":"The sculpture is the length of the hallway\n It seems to be a bunch of giant wood bowls. "
 		}
+		//TODO: TOUCH command, touch sculpture, check notes
 	},
 	"lobby-elevators":{
 		"visited": false,
 		"start": lobbyelevatorstart,
-		"description": lobbyelevatorstart
+		"description": lobbyelevatorstart,
+		"gofunc":{
+			"outside": "ground",
+			"hallway": "lobby-hallway",
+			"6": "6-elevators",
+		},
 	},
 	"5" : {},
-	"6" : {},
+	"6-elevators" : {
+		"visited": false,
+		"start": six_elev_start,
+		"description": six_elev_start,
+		"gofunc":{
+			"info booth": "6-infobooth",
+			"infobooth": "6-infobooth",
+			"info": "6-infobooth",
+		},
+	},
+	"6-infobooth":{
+		"visited": false,
+		"start": six_infobooth_start,
+		"gofunc":{
+			"lower elevators": "6-elevators",
+			"upper elevators": "6-upperelevators",
+			"left": "6-upperelevators",
+			"right": "6-pantry",
+			"pantry": "6-pantry",
+		},
+	},
+	"6-upperelevators":{
+		"visited": false,
+		"start": six_upperelevators_start,
+		"gofunc":{
+			"lower elevators": "6-elevators",
+			"info booth": "6-infobooth",
+			"infobooth": "6-infobooth",
+			"info": "6-infobooth",
+			"right": "6-pantry",
+			"pantry": "6-pantry",
+		},
+	},
+	"6-pantry":{
+		"visited": false,
+		"start": six_pantry_start,
+		"description": "you are in the pantry",
+		"gofunc":{
+			"lower elevators": "6-elevators",
+			"upper elevators": "6-upperelevators",
+			"info booth": "6-infobooth",
+			"infobooth": "6-infobooth",
+			"info": "6-infobooth",
+		},
+		"lookfunc":{
+			"poster": Text['poster'],
+		}
+	},
 	"7" : {},
 	"17" : {},
 	"22" : {},
 	"29" : {}
 }
 
-var Text = {
-	'startgame': "Welcome to the wonderful world of the terminal",
-	'falsestart': "You're already playing the game..."
-}
 
+var Items = {
+	"coat":{
+		"description": "Features Mickey Mouse on a blue background.\n Complete with fold over mittens and an attached hood"
+	},
+	"badge":{
+		"description": "A piece of paper with my picture and name on it. Hanging from my neck on a chain"
+	},
+}
 
 function Player(){
 	this.location = "ground";
 	this.back = "ground";
 	this.talking_to = undefined;
+	this.inventory = ["coat"]
 }
 
 player = new Player()
