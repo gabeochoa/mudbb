@@ -99,13 +99,14 @@ function addText(textToAdd){
 
 		//check to see if we ran out of space
 		i = nextValidBlock(blocks, i);
+		// couldnt find an empty spot
 		if(i == -1){break;}
 
+		// fill the rest with empty space
 		if (j >= textToAdd.length){letter = " ";}
 		else{letter = textToAdd[j];}
 		
 		setPixelText(blocks[i].id, letter);
-
 
 		j++;
 	}

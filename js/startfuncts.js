@@ -11,13 +11,14 @@ function lobbyhallwaystart(){
 }
 function lobbyelevatorstart(){
 
-	out = "You start walking to the elevators\n"
-	out += "A guard stops you and asks for ID\n"
+	out = "You start walking to the elevators.\n A guard stops you and asks for ID.\n x"
+
 	if(State.puzzles.badge.getbadge){
-		out += "You take out your badge and show it to him."
+		out += "You take out your badge and show it to him.\n"
 	}
 	else{
-		out += "You have no badge, go get one from the desk."
+		out += "You have no badge, go get one from the desk.\n"
 	}
+	console.log(out)
 	return out;
 }

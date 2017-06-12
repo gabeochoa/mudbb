@@ -143,6 +143,7 @@ function gofunc(inp){
 		//we cant go there
 		return "Can't go there.";
 	}
+	//newloc = inp[0].toLowerCase()
 	return actuallygo(newloc);
 }
 
@@ -246,8 +247,20 @@ function process_talk(input){
 	return (Loc[player.location].talkfunc[person][0])()
 }
 
+function multicmd(commands){
+	for (var i = 0; i < commands.length; i++) {
+		x = process($.trim(commands[i]))
+	}
+	return x;
+}
+
 function process(input){
 	console.log(input)
+	multi = input.split(";")
+	console.log(multi)
+	if(multi.length > 1){
+		return multicmd(multi)
+	}
 	spl = input.split(" ");
 	if(State.is_talking)
 	{
