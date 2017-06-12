@@ -79,6 +79,10 @@ function nextValidBlock(blocks, j)
 }
 
 function addText(textToAdd){
+	if(textToAdd === undefined)
+	{
+		console.log("WARNING: textToAdd is undef")
+	}
 	var blocks = document.getElementById("grid").childNodes;
 	var j = 0;
 	for (var i = 0; i < blocks.length; i++) {
