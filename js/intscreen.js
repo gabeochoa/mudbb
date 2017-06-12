@@ -82,6 +82,7 @@ function addText(textToAdd){
 	if(textToAdd === undefined)
 	{
 		console.log("WARNING: textToAdd is undef")
+		return
 	}
 	var blocks = document.getElementById("grid").childNodes;
 	var j = 0;

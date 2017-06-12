@@ -32,7 +32,10 @@ function mapfunc(inp){
 	out += "You are on the "
 	out += player.location
 	out += " floor. "
-
+	out += "\n"
+	out += "You can go to: "
+	// for now this is an easy way to debug
+	out += Object.keys(Loc[player.location].gofunc)
 	return out
 }
 
@@ -170,9 +173,16 @@ function invalid(inp){
 
 function helpfunc(inp)
 {
-	out = validfunctions.toString()
+	out = "";
+	//+Object.keys(validfunctions)
 	//todo figure out how to print the keys 
 	// of a json 
+	for (var i = 0; i < Object.keys(funcdescrip).length; i++) {
+		out += "" + Object.keys(funcdescrip)[i]
+		out += ":"
+		out += funcdescrip[Object.keys(funcdescrip)[i]]
+		out += "\n"
+	}
 	return out;
 }
 
@@ -199,12 +209,10 @@ funcdescrip = {
 	"HELP": "Print the valid functions",
 	"MAP": "Prints where you are in the game",
 	"GO": "goes to a location, \"GO BACK\" will go to the last location you were before this room",
+	"TALK": "With no tail:    prints who is around to talk to\n With tail:    initiates conversation with someone", 
+	"INSPECT/LOOK": "if something is inspectable, will print more of a description of the object/person",
+	"LEAVE/EXIT": "Leave conversation with person",
 	"BBOB": "bbobfunc",
-	"TALK": "With no tail:\n\t prints who is around to talk to\n With tail:\n\t initiates conversation with someone", 
-	"INSPECT": "if something is inspectable, will print more of a description of the object/person",
-	"LOOK": "if something is inspectable, will print more of a description of the object/person",
-	"LEAVE": "Leave conversation with person",
-	"EXIT": "Leave conversation with person",
 }
 validfunctions = {
 	"START": startgame,
