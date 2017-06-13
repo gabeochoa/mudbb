@@ -105,6 +105,9 @@ var Loc = {
 			"right": "6-pantry",
 			"pantry": "6-pantry",
 		},
+		"talkfunc":{
+			"lady": [infobooth_lady, infobooth_lady_proc]
+		}
 	},
 	"6-upperelevators":{
 		"visited": false,
@@ -130,7 +133,7 @@ var Loc = {
 			"info": "6-infobooth",
 		},
 		"lookfunc":{
-			"poster": Text['poster'],
+			"poster": look_poster,
 		}
 	},
 	"7" : {},
@@ -158,10 +161,10 @@ function Player(){
 
 player = new Player()
 
-//addText(Text['startgame'] + "\nType \"START\" to start playing");
+addText(Text['startgame'] + "\nType \"START\" to start playing");
 
 
-addText(Text['poster'])
+//addText(Text['poster'])
 
 
 

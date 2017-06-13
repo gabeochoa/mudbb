@@ -13,6 +13,7 @@ var DiagState = {
 	},
 	"info_booth":{
 		"visited": false,
+		"item": undefined
 	}
 }
 
@@ -99,5 +100,49 @@ function lobby_woman(){
 	{
 		return "Ready to donate your coat now?\n";
 	}
-
 }
+
+function infobooth_lady_proc(inp){
+	items = ["HAT", "TSHIRT", "SHIRT", "PAJAMA", "PANTS", "SOCKS"]
+	match = findin(inp, items)
+	//we dont care if its undef, since we handle it
+	DiagState.info_booth.item = match;
+}
+function infobooth_lady(){
+	if(State.seen_poster && DiagState.info_booth.item === undefined){
+		return "Planning on entering the raffle? \nLet me know if you need any help finding the items"
+	}
+	if(DiagState.info_booth.item == "HAT"){
+		return "oh you can get the hat from Mike Bloomberg's desk\n just FON him to see where he sits."
+	}
+	if(DiagState.info_booth.item == "TSHIRT" ||
+	   DiagState.info_booth.item == "SHIRT" ){
+		return "For that, you will probably need to talk to the recruiting team on 17."
+	}
+	if(DiagState.info_booth.item == "PANTS" ||
+	   DiagState.info_booth.item == "PAJAMA"){
+		return "You might have some luck with the training team on 22"
+	}
+	if(DiagState.info_booth.item == "SOCKS"){
+		return "hmm, maybe check in the mailroom on LL2..."
+	}
+
+	return "\"The elevators to go up are on the left.\n And the pantry is on the right\""
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

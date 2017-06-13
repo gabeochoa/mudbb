@@ -106,7 +106,7 @@ function actuallygo(newloc)
 	return Loc[newloc]['start']()
 }
 function gofunc(inp){
-	console.log("gofunc " + inp);
+	// console.log("gofunc " + inp);
 	// console.log("loc: " + player.location)
 	// console.log("bac: " + player.back)
 
@@ -121,6 +121,9 @@ function gofunc(inp){
 	}
 
 	valid_places = Object.keys(Loc[player.location]['gofunc'])
+	//allow the current place to be valid
+	valid_places.push(player.location)
+	// console.log(valid_places)
 	match = findin(inp, valid_places)
 	newloc = Loc[player.location]['gofunc'][match]
 	if(newloc === undefined)
@@ -173,7 +176,13 @@ function helpfunc(inp)
 }
 
 function leavefunc(inp){
-	return gofunc([player.location])
+	State.talking = false;
+	player.talking_to = undefined;
+
+	a = player.back  
+	player.back = player.location
+	player.location = a
+	return gofunc(["BACK"])
 }
 
 function lookfunc(inp){
@@ -188,6 +197,13 @@ function lookfunc(inp){
 	{
 		return "Can't seem to get any more info about this."
 	}
+
+	// we basically want this to trigger events 
+	// on "LOOK AT"
+	if(typeof lookingat != 'string'){
+		return lookingat();
+	}
+	//else 
 	return lookingat;
 }
 

@@ -43,7 +43,12 @@ function six_pantry_start(){
 }
 
 
+////LOOK FUNCTS
 
+function look_poster(){
+	State.seen_poster = true;
+	return Text['poster']
+}
 
 
 
