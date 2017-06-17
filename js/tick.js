@@ -8,8 +8,7 @@ var State = {
 		},
 		"tshirt": {
 			"coat_donated": false
-		},
-		"pants": false
+		}
 	}
 }
 
@@ -98,6 +97,7 @@ var Loc = {
 	"6-infobooth":{
 		"visited": false,
 		"start": six_infobooth_start,
+		"description": six_infobooth_start,
 		"gofunc":{
 			"lower elevators": "6-elevators",
 			"upper elevators": "6-upperelevators",
@@ -112,6 +112,7 @@ var Loc = {
 	"6-upperelevators":{
 		"visited": false,
 		"start": six_upperelevators_start,
+		"description": six_upperelevators_start,
 		"gofunc":{
 			"lower elevators": "6-elevators",
 			"info booth": "6-infobooth",
@@ -119,6 +120,13 @@ var Loc = {
 			"info": "6-infobooth",
 			"right": "6-pantry",
 			"pantry": "6-pantry",
+			"LL2": "ll2",
+			"15": "15",
+			"17": "17",
+			"20": "20",
+			"23": "23",
+			"26": "26",
+			"29": "29"
 		},
 	},
 	"6-pantry":{
@@ -131,15 +139,46 @@ var Loc = {
 			"info booth": "6-infobooth",
 			"infobooth": "6-infobooth",
 			"info": "6-infobooth",
+			"mpr": "7",
+			"7": "7"
 		},
 		"lookfunc":{
 			"poster": look_poster,
 		}
 	},
-	"7" : {},
+	"7" : {
+		"visited": undefined,
+		"start": seven_start,
+		"description": seven_description,
+		"gofunc":{
+			"6": "6-pantry",
+			"pantry": "6-pantry",
+		}
+	},
 	"17" : {},
 	"22" : {},
-	"29" : {}
+	"29" : {
+		"visited": undefined,
+		"start": twentynine_start,
+		"description": twentynine_description,
+		"gofunc":{
+			"stairs": "28",
+			"down": "28",
+			//rest of elevator floors
+		}
+	},
+	"__generic__":{
+		"visited": undefined,
+		"start": generic_start,
+		"description": generic_description,
+		"gofunc":{
+			//TODO this is going to be complicated
+			//because we have to figure out what floor 
+			// they are supposed to be on
+
+			// Basically its going to be +1/-1
+		}
+	}
 }
 
 

@@ -123,8 +123,8 @@ function gofunc(inp){
 	valid_places = Object.keys(Loc[player.location]['gofunc'])
 	//allow the current place to be valid
 	valid_places.push(player.location)
-	// console.log(valid_places)
-	match = findin(inp, valid_places)
+	console.log("valid places: " + valid_places)
+	match = findin_rex(inp, valid_places)
 	newloc = Loc[player.location]['gofunc'][match]
 	if(newloc === undefined)
 	{
