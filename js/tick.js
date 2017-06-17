@@ -15,17 +15,18 @@ var State = {
 var Text = {
 	'startgame': "Welcome to the wonderful world of the terminal",
 	'falsestart': "You're already playing the game...",
-	'poster': "TONIGHT IS BLOOMBERGS ANNUAL HALLOWEEN COSTUME PARTY : 5-8PM\n\
+	'poster': "TONIGHT IS BROOMBERGO'S ANNUAL HALLOWEEN COSTUME PARTY : 5-8PM\n\
 	Prize for first place -\n\
-		//come up with something good\n\
+		1 on 1 with Mike Broombergo *IN COSTUME!*\n\
  	Prize for second place -\n\
- 		//come up with something good\n\
+ 		Lunch with SajMal Hsarif (Creater or OFCalc)\n\
+ 		and Lawn Jakos (Creator of MDE)\n\
  	Prize for third place -\n\
- 		//come up with something good\n\
+ 		Broombergo Engineering Sweatshirt\n\
  	HOW DO I PARTICIPATE?\n\
  	JUST SHOW UP!  If you are IN the 7EMPR at the time of judging, you are IN the contest! \n\
  	FORGOT A COSTUME?\n\
- 	Collect all the Bloomberg swag items and you can enter the raffle for a Bloomberg Umbrella!\n\
+ 	Collect all the Broombergo swag items and you can enter the raffle for a Broombergo Umbrella!\n\
  	\n\
  	Collect\n\
  	  Hat ***** TShirt ***** Pajama Pants ***** Socks",

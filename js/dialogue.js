@@ -113,7 +113,7 @@ function infobooth_lady(){
 		return "Planning on entering the raffle? \nLet me know if you need any help finding the items"
 	}
 	if(DiagState.info_booth.item == "HAT"){
-		return "oh you can get the hat from Mike Bloomberg's desk\n just FON him to see where he sits."
+		return "oh you can get the hat from Mike Broombergo's desk\n just FON him to see where he sits."
 	}
 	if(DiagState.info_booth.item == "TSHIRT" ||
 	   DiagState.info_booth.item == "SHIRT" ){
