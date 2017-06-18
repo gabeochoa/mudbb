@@ -1,3 +1,7 @@
+var inheritsFrom = function (child, parent) {
+    child.prototype = Object.create(parent.prototype);
+    child.prototype.constructor = child; 
+};
 
 function findin(listA, listB){
 	// console.log("findin")
