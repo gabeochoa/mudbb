@@ -33,8 +33,6 @@ function get_all_gen(func){
 	}
 	//console.log(gen_out)
 	aaaa = gen_out.join('\n')
-	console.log(gen_out)
-	console.log(aaaa)
 	return aaaa
 }
 

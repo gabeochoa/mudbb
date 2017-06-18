@@ -89,12 +89,11 @@ function clear_grid(blocks){
 
 function addText(textToAdd, clear=true){
 	
-	if(textToAdd === undefined)
-	{
+	if(textToAdd === undefined){
 		console.log("WARNING: textToAdd is undef")
 		return
 	}
-	console.log("INTSCREEN:\n" +textToAdd)
+	//console.log("INTSCREEN:\n" +textToAdd)
 	var blocks = document.getElementById("grid").childNodes;
 
 	//clear the screen
@@ -105,7 +104,7 @@ function addText(textToAdd, clear=true){
 	}else{
 		arrToAdd = [textToAdd]
 	}
-	
+
 	strind = 0; current_loc = 0; x = 0; y = 0
 	for (var i = 0; i < arrToAdd.length; i++) {
 		textToAdd = arrToAdd[i]
