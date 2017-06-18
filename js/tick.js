@@ -204,6 +204,8 @@ player = new Player()
 addText(Text['startgame'] + "\nType \"START\" to start playing");
 
 
+
+addText(map_ground())
 //addText(Text['poster'])
 
 

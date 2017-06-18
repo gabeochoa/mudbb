@@ -9,11 +9,11 @@ function makeGrid()
     return element
 }
 
-function createP(){
-	var text = document.createElement("p")
-	text.style = "color:orange;font-family:\"Lucida Console\", Monaco, monospace;";
-	text.innerHTML = " ";
-	return text
+function createP(w, h){
+	var content = document.createElement("p");
+	content.innerHTML = "X"
+	content.style = "margin-top: -4px;color:orange;font-family:\"Lucida Console\", Monaco, monospace;"
+	return content;
 }
 
 function setPixelText(pix, text)
@@ -26,42 +26,45 @@ function makePixel(x, y, w, h){
  	var element = document.createElement("div");
  	id = "pixel-" + x + "-" + y
     stylestr = "float:left;"
+    //stylestr += "text-align:justify;"
     stylestr += "width:"+w+"px;height:"+h+"px;"
 	stylestr += "background-color:black;"
 	element.style = stylestr;
 	element.id = id
 
-	element.appendChild(createP())
-    return element
+	element.appendChild(createP(w, h))
+	return element
 }
 
+var WINDOW_WIDTH = $(window).width();
+var WINDOW_HEIGHT = $(window).height();
+
 var cols = 80;
-var rows = 20;
-var width = ($(window).width()-10) / cols;
-var height = ($(window).height())  / rows;
+var rows = 35;
+
+var grid_width =  WINDOW_WIDTH  / cols;
+var grid_height = WINDOW_HEIGHT / rows;
+console.log(grid_width + " " + grid_height)
+
+$(window).resize(function(){
+	generatePixs()
+});
+
 function generatePixs()
 {
-	width = ($(window).width()-10) / cols;
- 	height = ($(window).height())  / rows;
-
 	var is = document.getElementById("int-screen");
 	var grid = makeGrid()
 	is.appendChild(grid)
 	for (var i = 0; i < cols; i++) {
 		for (var j = 0; j < rows; j++) {
-			grid.appendChild(makePixel(i,j, width, height))
-		}
-		if(j % cols == 0)
-		{
-			grid.appendChild(document.createElement("br"))
+			pix = makePixel(i,j, grid_width, grid_height)
+			grid.appendChild(pix)
 		}
 	}
 
 }
+
 generatePixs()
-$(window).resize(function(){
-	generatePixs()
-});
 ///////////
 
 function nextValidBlock(blocks, j)
@@ -79,26 +82,28 @@ function nextValidBlock(blocks, j)
 }
 
 
-
 function addText(textToAdd){
+	
 	if(textToAdd === undefined)
 	{
 		console.log("WARNING: textToAdd is undef")
 		return
 	}
 	var blocks = document.getElementById("grid").childNodes;
-	
+
 	//clear the screen
 	for (var i = 0; i < blocks.length; i++) {
 		setPixelText(blocks[i].id, " ");
 	}
 
 	//j is current loc in string to add
-	j=0
+	i = 0
+	j = 0
 	for (var x = 0; x < rows; x++) {
 	for (var y = 0; y < cols; y++) {
 		i = x*cols + y;//next pixel to change
-		letter = textToAdd.charAt(j++)
+		letter = textToAdd.charAt(j)
+		j+=1
 		if(letter == '\n')
 		{
 			x++; //inc row 

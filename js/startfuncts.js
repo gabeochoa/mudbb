@@ -1,5 +1,5 @@
 function groundstart(){
-	return "You are standing outside of a building at 731 Lexington Ave. \n It is pouring.\n You have no umbrella. \n* you can type INV to see your current inventory *";
+	return "You are standing outside of a building at 731 Lexington Ave. \n It is pouring.\n You have no umbrella. \n* you can ype HELP to learn what functions able to use *";
 }
 
 function lobbystart(){
