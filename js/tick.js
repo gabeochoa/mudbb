@@ -43,6 +43,7 @@ var Loc = {
 			"inside": "lobby",
 			"lobby": "lobby"
 		},
+		"mapfunc": map_ground
 	},
 	"lobby":{
 		"visited": false,
@@ -203,11 +204,9 @@ player = new Player()
 
 addText(Text['startgame'] + "\nType \"START\" to start playing");
 
-
-
-addText(map_ground())
 //addText(Text['poster'])
 
+process("MAP")
 
 
 

@@ -18,7 +18,6 @@ function Rect(width, height, label=""){
 	this.label = label;
 
 	this.draw = function(indent=4){
-
 		space = new Array(indent).join(spacechar)
 		room = [];
 		for (var i = 0; i < this.height; i++) {
@@ -55,9 +54,12 @@ function Rect(width, height, label=""){
 }
 inheritsFrom(Square, Rect);
 
-function map_ground(){
+function* map_ground(){
 	s = new Rect(15, 10, "Ground Floor")
-	return s.draw();
+	yield s.draw()
+	s = new Square(6, "Hallway")
+	yield s.draw(indent=10)
+	yield "something else"
 }
 
 

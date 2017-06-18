@@ -25,18 +25,26 @@ function startgame(inp){
 	return gofunc(['ground'])
 }
 
+
+
 function mapfunc(inp){
 	console.log("mapfunc");
-	out =  "mapfunc"
-	out += "\n"
-	out += "You are on the "
-	out += player.location
-	out += " floor. "
-	out += "\n"
-	out += "You can go to: "
+	mapret =[]
+	mapret.push("mapfunc\n")
+	
+	func = Loc[player.location].mapfunc()
+	get_gen_list = get_all_gen(func)
+
+	mapret.push(""+get_gen_list)
+	mapret.push("\n")
+	mapret.push("You are on the ")
+	mapret.push(""+player.location)
+	mapret.push(" floor. ")
+	mapret.push("\n")
+	mapret.push("You can go to: ")
 	// for now this is an easy way to debug
-	out += Object.keys(Loc[player.location].gofunc)
-	return out
+	mapret.push(""+Object.keys(Loc[player.location].gofunc))
+	return mapret
 }
 
 function talkfunc(inp){
@@ -277,13 +285,23 @@ function multicmd(commands){
 }
 
 function process(input){
+	//what is being sent
 	console.log(input)
+	//if we have multiple commands
+	// at once
+	// this might have some bugs, not sure yet
 	multi = input.split(";")
 	console.log(multi)
 	if(multi.length > 1){
 		return multicmd(multi)
 	}
+
+	// if we only have one
+	// split into words
 	spl = input.split(" ");
+	command = spl[0]
+	tails = spl.slice(1, spl.length)
+
 	if(State.is_talking)
 	{
 		// we need to handle inputs 
@@ -293,11 +311,19 @@ function process(input){
 	}
 	// console.log(validfuncs);
 	// console.log(spl[0]);
+
+	//get our output from the function
+	returned_string = ""
 	if( spl.length > 0 && 
-		validfuncs.indexOf(spl[0]) != -1){
-		return validfunctions[spl[0]](spl.slice(1, spl.length));
+		validfuncs.indexOf(command) != -1){
+		returned_string = validfunctions[command](tails);
 	}
-	return invalid(spl);
+	else{
+		returned_string = invalid(spl);
+	}
+
+	addText(returned_string); 
+
 }
 
 

@@ -18,6 +18,25 @@ function findin(listA, listB){
 	return undefined;
 }
 
+function get_all_gen(func){
+	console.log("util" + func)
+	gen_out = []
+	while(true){
+		x = func.next()
+		cont = x.done
+		if(cont){
+			break
+		}
+		val = x.value
+		//console.log(gen_out)
+		gen_out.push(val)
+	}
+	//console.log(gen_out)
+	aaaa = gen_out.join('\n')
+	console.log(gen_out)
+	console.log(aaaa)
+	return aaaa
+}
 
 //TODO Support regular expressions
 function findin_rex(listA, listB){

@@ -81,42 +81,51 @@ function nextValidBlock(blocks, j)
 	return j;
 }
 
+function clear_grid(blocks){
+	for (var i = 0; i < blocks.length; i++) {
+		setPixelText(blocks[i].id, " ");
+	}
+}
 
-function addText(textToAdd){
+function addText(textToAdd, clear=true){
 	
 	if(textToAdd === undefined)
 	{
 		console.log("WARNING: textToAdd is undef")
 		return
 	}
-	
+	console.log("INTSCREEN:\n" +textToAdd)
 	var blocks = document.getElementById("grid").childNodes;
 
 	//clear the screen
-	for (var i = 0; i < blocks.length; i++) {
-		setPixelText(blocks[i].id, " ");
-	}
+	if(clear){clear_grid(blocks)}
 
-	//j is current loc in string to add
-	i = 0
-	j = 0
-	for (var x = 0; x < rows; x++) {
-	for (var y = 0; y < cols; y++) {
-		i = x*cols + y;//next pixel to change
-		letter = textToAdd.charAt(j)
-		j+=1
-		if(letter == '\n')
-		{
-			x++; //inc row 
-			y = -1; //reset xpos
-			continue
+	if(textToAdd.constructor === Array){
+		arrToAdd = textToAdd
+	}else{
+		arrToAdd = [textToAdd]
+	}
+	
+	strind = 0; current_loc = 0; x = 0; y = 0
+	for (var i = 0; i < arrToAdd.length; i++) {
+		textToAdd = arrToAdd[i]
+		for (var strind = 0; strind < textToAdd.length; strind++) {
+			letter = textToAdd[strind]
+			if(letter == '\n')
+			{
+				x++; //inc row 
+				y = 0; //reset xpos
+				continue
+			}
+			current_loc = x*cols +y;
+			setPixelText(blocks[current_loc].id, letter);
+			y++;
+			if(y > cols){
+				y = 0
+				x ++
+			}
 		}
-		//check to see if we ran out of space
-		i = nextValidBlock(blocks, i);
-		// couldnt find an empty spot
-		if(i == -1){break;}
-		setPixelText(blocks[i].id, letter);
-	}}
+	}
 }
 
 
