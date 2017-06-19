@@ -1,5 +1,5 @@
 //Everything in this file is sorted
-// by top to bottom with respect to 
+// by top to bottom with respect to
 // the screen
 
 
@@ -17,7 +17,7 @@ $('#login').cssConsole({
 // two line
 $("#two-line").click(function(){
     console.log("two line clicked")
-}); 
+});
 
 function set_two_line(sent)
 {

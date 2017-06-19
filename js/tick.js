@@ -64,7 +64,7 @@ var Loc = {
 		"description": "In the hallway there is a large wooden sculpture.\n A woman is standing near a cart. \n There are also some elevators.",
 		"gofunc":{
 			"elevators": "lobby-elevators",
-			"elevator": "lobby-elevators" 
+			"elevator": "lobby-elevators"
 		},
 		"talkfunc":{
 			"woman": [lobby_woman, lobby_woman_proc]
@@ -175,7 +175,7 @@ var Loc = {
 		"description": generic_description,
 		"gofunc":{
 			//TODO this is going to be complicated
-			//because we have to figure out what floor 
+			//because we have to figure out what floor
 			// they are supposed to be on
 
 			// Basically its going to be +1/-1

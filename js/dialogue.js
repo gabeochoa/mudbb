@@ -1,6 +1,6 @@
 //maybe do a yield? and do a line at a time
 var DiagState = {
-	"lobby_woman":{ 
+	"lobby_woman":{
 		"visited": false,
 		"donated": false,
 		"want_to": undefined,
@@ -61,7 +61,7 @@ function lobby_woman_proc(inp){
 	{
 		DiagState.lobby_woman.want_to = false;
 	}
-	return 
+	return
 }
 function lobby_woman(){
 	//she will just repeat this forever
@@ -81,7 +81,7 @@ function lobby_woman(){
 		return "Decided to donate yet?"
 	}
 
-	// visited but not donated yet. 
+	// visited but not donated yet.
 	if(DiagState.lobby_woman.want_to){
 		State.puzzles.tshirt.coat_donated = true;
 		DiagState.lobby_woman.donated = true;

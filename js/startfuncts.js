@@ -13,7 +13,7 @@ function lobbyelevatorstart(){
 
 	out = "You start walking to the elevators. A guard stops you and asks for ID."
 
-	if(State.puzzles.badge.getbadge || 
+	if(State.puzzles.badge.getbadge ||
 	   player.inventory.indexOf("badge") != -1){
 		State.puzzles.badge.getbadge = true;
 		out += "You show it to him.\n"
@@ -67,7 +67,7 @@ function seven_start(){
 	for(var i=0; i<all_items.length; i++){
 		console.log(all_items[i])
 		if(player.inventory.indexOf(all_items[i])==-1){
-			//they are missing one 
+			//they are missing one
 			missing = true;
 			break;
 		}

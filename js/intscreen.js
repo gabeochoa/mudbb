@@ -88,7 +88,7 @@ function clear_grid(blocks){
 }
 
 function addText(textToAdd, clear=true){
-	
+
 	if(textToAdd === undefined){
 		console.log("WARNING: textToAdd is undef")
 		return
@@ -112,7 +112,7 @@ function addText(textToAdd, clear=true){
 			letter = textToAdd[strind]
 			if(letter == '\n')
 			{
-				x++; //inc row 
+				x++; //inc row
 				y = 0; //reset xpos
 				continue
 			}

@@ -31,7 +31,7 @@ function mapfunc(inp){
 	console.log("mapfunc");
 	mapret =[]
 	mapret.push("mapfunc\n")
-	
+
 	func = Loc[player.location].mapfunc()
 	get_gen_list = get_all_gen(func)
 
@@ -104,7 +104,7 @@ function actuallygo(newloc)
 	if(Loc[newloc].visited)
 	{
 		//we've already been
-		//so we just print the 
+		//so we just print the
 		// normal text.
 		return Loc[newloc].description;
 	}
@@ -172,8 +172,8 @@ function helpfunc(inp)
 {
 	out = "";
 	//+Object.keys(validfunctions)
-	//todo figure out how to print the keys 
-	// of a json 
+	//todo figure out how to print the keys
+	// of a json
 	for (var i = 0; i < Object.keys(funcdescrip).length; i++) {
 		out += "" + Object.keys(funcdescrip)[i]
 		out += ":"
@@ -187,7 +187,7 @@ function leavefunc(inp){
 	State.talking = false;
 	player.talking_to = undefined;
 
-	a = player.back  
+	a = player.back
 	player.back = player.location
 	player.location = a
 	return gofunc(["BACK"])
@@ -206,12 +206,12 @@ function lookfunc(inp){
 		return "Can't seem to get any more info about this."
 	}
 
-	// we basically want this to trigger events 
+	// we basically want this to trigger events
 	// on "LOOK AT"
 	if(typeof lookingat != 'string'){
 		return lookingat();
 	}
-	//else 
+	//else
 	return lookingat;
 }
 
@@ -236,7 +236,7 @@ funcdescrip = {
 	"HELP": "Print the valid functions",
 	"MAP": "Prints where you are in the game",
 	"GO/GOTO": "goes to a location, \"GO BACK\" will go to the last location you were before this room",
-	"TALK": "With no tail:    prints who is around to talk to\n With tail:    initiates conversation with someone", 
+	"TALK": "With no tail:    prints who is around to talk to\n With tail:    initiates conversation with someone",
 	"INSPECT/LOOK": "if something is inspectable, will print more of a description of the object/person",
 	"LEAVE/EXIT": "Leave conversation with person",
 	"INV / INVENTORY": "Print the contents of your pockets.",
@@ -249,7 +249,7 @@ validfunctions = {
 	"GO": gofunc,
 	"GOTO": gofunc,
 	"BBOB": bbobfunc,
-	"TALK": talkfunc, 
+	"TALK": talkfunc,
 	"LEAVE": leavefunc,
 	"EXIT": leavefunc,
 	"INSPECT": lookfunc,
@@ -304,7 +304,7 @@ function process(input){
 
 	if(State.is_talking)
 	{
-		// we need to handle inputs 
+		// we need to handle inputs
 		// not as functions but as
 		// talking prompts
 		return process_talk(spl)
@@ -314,7 +314,7 @@ function process(input){
 
 	//get our output from the function
 	returned_string = ""
-	if( spl.length > 0 && 
+	if( spl.length > 0 &&
 		validfuncs.indexOf(command) != -1){
 		returned_string = validfunctions[command](tails);
 	}
@@ -322,7 +322,7 @@ function process(input){
 		returned_string = invalid(spl);
 	}
 
-	addText(returned_string); 
+	addText(returned_string);
 
 }
 
