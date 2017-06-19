@@ -19,7 +19,7 @@ function findin(listA, listB){
 }
 
 function get_all_gen(func){
-	console.log("util" + func)
+	//console.log("util" + func)
 	gen_out = []
 	while(true){
 		x = func.next()
@@ -31,9 +31,7 @@ function get_all_gen(func){
 		//console.log(gen_out)
 		gen_out.push(val)
 	}
-	//console.log(gen_out)
-	aaaa = gen_out.join('\n')
-	return aaaa
+	return gen_out.join('\n')
 }
 
 //TODO Support regular expressions
