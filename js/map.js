@@ -6,6 +6,8 @@ toprightcorn = '┓'
 botrightcorn = '┛'
 botleftcorn = '┗'
 floor = '━'
+upchar = "^"
+downchar = "v"
 
 TEXT_MODE = {
     "LJUST": 0,
@@ -16,6 +18,16 @@ TEXT_MODE = {
 OUTLINE = {
     "NONE": 0,
     "SOLID": 1,
+    "UP": 2,
+    "DOWN": 2
+}
+
+TRANS_LEVEL = {
+    "NONE": 0,
+    "SPACE": 1,
+    "WALLS": 2,
+    "ANTIWALLS": 3,
+    "ALL": 4
 }
 
 function LocationMap(width, height){
@@ -26,7 +38,7 @@ function LocationMap(width, height){
         this.internals[i] = "\n"
     }
 
-    this.applyOnto = function(location, shape){
+    this.applyOnto = function(location, shape, trans=undefined){
         //this function should join all the shapes
         // in the correct location (x,y)
         shape_rend = shape.render()
@@ -37,7 +49,11 @@ function LocationMap(width, height){
             for (var j = 0; j <= shape.width; j++) {
                 if(j+location.x > this.width){continue;}
                 index = ((i+location.y)*this.width)+j + location.x;
-                this.internals[index] = shape_rend[i][j]
+                var letter = shape_rend[i][j]
+                if(trans && letter == spacechar){
+                    continue
+                }
+                this.internals[index] = letter;
             }
         }
     }
@@ -86,6 +102,25 @@ function Square(width, label="", text_mode=0, outline=1){
               text_mode=text_mode, outline=outline)
 }
 
+function get_outline(def_char=" ", level=1){
+    var val = def_char
+    switch(level){
+        case 0:
+            val = spacechar
+            break
+        case 2:
+            val = upchar
+            break
+        case 3:
+            val = downchar
+            break
+        case 1:
+        default:
+        break
+    }
+    return val
+}
+
 function Rect(width, height, label="", text_mode=0, outline=1){
     this.width = width;
     this.height = height;
@@ -97,27 +132,27 @@ function Rect(width, height, label="", text_mode=0, outline=1){
         for (var i = 0; i < this.height; i++) {
             out = space
             if(i == 0){
-                out += outline? topleftcorn : spacechar
-                somechar = outline? floor : spacechar
+                out += get_outline(topleftcorn, outline)
+                somechar = get_outline(floor, outline)
                 out += new Array(this.width).join(somechar);
-                out += outline? toprightcorn : spacechar
+                out += get_outline(toprightcorn, outline)
             }
             else if(i == this.height-1){
-                out += outline? botleftcorn : spacechar
-                somechar = outline? floor : spacechar
+                out += get_outline(botleftcorn, outline)
+                somechar =  get_outline(floor, outline)
                 out += new Array(this.width).join(somechar);
-                out += outline? botrightcorn : spacechar
+                out += get_outline(botrightcorn, outline)
             }
             else if(i == Math.floor(this.height/2)){
-                out += outline? wall : spacechar
+                out += get_outline(wall, outline)
                 lab = this.label.substring(0, this.width-1);
                 out += get_label_spacing(this.label, this.width, text_mode)
-                out += outline? wall : spacechar
+                out += get_outline(wall, outline)
             }
             else{
-                out += outline? wall : spacechar
+                out += get_outline(wall, outline)
                 out += new Array(this.width).join(spacechar);
-                out += outline? wall : spacechar
+                out += get_outline(wall, outline)
             }
             room.push(out);
         }
@@ -134,6 +169,15 @@ function Rect(width, height, label="", text_mode=0, outline=1){
 }
 
 inheritsFrom(Square, Rect);
+
+function apply_shapes(base_map, shapes){
+    console.log(base_map)
+    console.log(shapes)
+    shapes.map(function(shape_arr){
+        base_map.applyOnto(shape_arr[1], shape_arr[0], trans=shape_arr[2])
+    });
+    return base_map.draw()
+}
 
 function* map_ground(){
 
@@ -152,13 +196,37 @@ function* map_ground(){
             {"x":lmost+11, "y":topmost}]
     ]
 
-    shapes.map(function(shape_arr){
-        ground_map.applyOnto(shape_arr[1], shape_arr[0])
-    });
-
-    yield ground_map.draw()
+    yield apply_shapes(ground_map, shapes)
 }
 
+
+function* map_six(){
+
+    lmost = Math.floor(cols/4)
+    topmost = 1
+    six_map = new LocationMap(80, 15);
+
+    shapes = [
+        [new Square(6, "14-29", TEXT_MODE.CENTER, OUTLINE.NONE),
+            {"x":lmost-7, "y":topmost+2}],
+        [new Rect(6, 12, "Elev"),
+            {"x":lmost-7, "y":topmost}, TRANS_LEVEL.SPACE],
+        [new Square(6, "Lobby", TEXT_MODE.CENTER, OUTLINE.NONE),
+            {"x":lmost+1, "y":topmost+2}],
+        [new Rect(6, 12, "Elev"),
+            {"x":lmost+1, "y":topmost}, TRANS_LEVEL.SPACE],
+        [new Square(13, "Pantry", TEXT_MODE.CENTER),
+            {"x":lmost+10, "y":topmost-1}],
+        [new Square(10, "7th Floor", TEXT_MODE.CENTER, OUTLINE.UP),
+            {"x":lmost+25, "y":topmost-1}],
+        [new Square(10, "/ MPR", TEXT_MODE.CENTER, OUTLINE.NONE),
+            {"x":lmost+25, "y":topmost}, true],
+        [new Rect(30, 3, "Info/Hallway", TEXT_MODE.CENTER, OUTLINE.SOLID),
+            {"x":lmost-7, "y":topmost-1}],
+    ]
+
+    yield apply_shapes(six_map, shapes)
+}
 
 
 

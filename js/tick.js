@@ -56,7 +56,8 @@ var Loc = {
 		},
 		"talkfunc":{
 			"secretary": [lobby_secretary, lobby_secretary_proc]
-		}
+		},
+		"mapfunc": map_ground
 	},
 	"lobby-hallway": {
 		"visited": false,
@@ -72,7 +73,8 @@ var Loc = {
 		"lookfunc":{
 			"woman": "You look at the woman in the hallway.\n She seems really happy and is standing next \n to a cart filled with coats.",
 			"sculpture":"The sculpture is the length of the hallway\n It seems to be a bunch of giant wood bowls. "
-		}
+		},
+		"mapfunc": map_ground
 		//TODO: TOUCH command, touch sculpture, check notes
 	},
 	"lobby-elevators":{
@@ -84,6 +86,7 @@ var Loc = {
 			"hallway": "lobby-hallway",
 			"6": "6-elevators",
 		},
+		"mapfunc": map_ground
 	},
 	"5" : {},
 	"6-elevators" : {
@@ -95,6 +98,7 @@ var Loc = {
 			"infobooth": "6-infobooth",
 			"info": "6-infobooth",
 		},
+		"mapfunc": map_six
 	},
 	"6-infobooth":{
 		"visited": false,
@@ -109,7 +113,8 @@ var Loc = {
 		},
 		"talkfunc":{
 			"lady": [infobooth_lady, infobooth_lady_proc]
-		}
+		},
+		"mapfunc": map_six
 	},
 	"6-upperelevators":{
 		"visited": false,
@@ -130,6 +135,7 @@ var Loc = {
 			"26": "26",
 			"29": "29"
 		},
+		"mapfunc": map_six
 	},
 	"6-pantry":{
 		"visited": false,
@@ -146,7 +152,8 @@ var Loc = {
 		},
 		"lookfunc":{
 			"poster": look_poster,
-		}
+		},
+		"mapfunc": map_six
 	},
 	"7" : {
 		"visited": undefined,
@@ -206,6 +213,8 @@ addText(Text['startgame'] + "\nType \"START\" to start playing");
 
 //addText(Text['poster'])
 
+
+player.location = "6-pantry"
 process("MAP")
 
 
