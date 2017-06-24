@@ -188,6 +188,8 @@ function* map_ground(){
     shapes = [
         [new Square(8, "Outside", TEXT_MODE.CENTER, OUTLINE.NONE),
             {"x":lmost-5, "y":topmost}],
+        [new Rect(20, 8, "---Inside---", TEXT_MODE.CENTER, OUTLINE.NONE),
+            {"x":lmost+3, "y":topmost-5}],
         [new Rect(8, 6, "Lobby"),
             {"x":lmost+5, "y":topmost}],
         [new Rect(16, 3, "Hallway", TEXT_MODE.CENTER),

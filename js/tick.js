@@ -32,28 +32,70 @@ var Text = {
  	  Hat ***** TShirt ***** Pajama Pants ***** Socks",
 }
 
+var goLoc = {
+	"ll2": {
+
+	},
+	"ground":{
+		"ground": "ground", //for start reasons
+		"inside": "lobby",
+		"lobby": "lobby",
+		"outside": "ground",
+		"hallway": "lobby-hallway",
+		"elevators": "lobby-elevators",
+		"elevator": "lobby-elevators",
+		"6": "6-elevators",
+	},
+	"6":{
+		"lower elevators": "6-elevators",
+		"upper elevators": "6-upperelevators",
+		"info booth": "6-infobooth",
+		"infobooth": "6-infobooth",
+		"info": "6-infobooth",
+		"right": "6-pantry",
+		"pantry": "6-pantry",
+		"mpr": "7",
+		"7": "7",
+		"LL2": "ll2",
+		"15": "15",
+		"17": "17",
+		"20": "20",
+		"23": "23",
+		"26": "26",
+		"29": "29",
+		"left": "6-upperelevators",
+		"right": "6-pantry",
+		"pantry": "6-pantry",
+	},
+	"7":{
+		"6": "6-pantry",
+		"pantry": "6-pantry",
+	},
+	"29": {
+		"stairs": "28",
+		"down": "28",
+		"28": "28",
+		//rest of elevator floors
+		"20": "20",
+		"23": "23",
+		"26": "26",
+	}
+}
+
 var Loc = {
 	"ll2" : {},
 	"ground": {
 		"visited": false,
 		"start": groundstart,
 		"description": "You are outside. It's still pooring.",
-		"gofunc":{
-			"ground": "ground", //for start reasons
-			"inside": "lobby",
-			"lobby": "lobby"
-		},
+		"gofunc": "ground",
 		"mapfunc": map_ground
 	},
 	"lobby":{
 		"visited": false,
 		"start": lobbystart,
 		"description": "You enter the lobby of the building.\n There are revolving doors behind you, a secretary at a desk and a hallway leading away from you.",
-		"gofunc":{
-			"outside": "ground",
-			"hallway": "lobby-hallway",
-			"elevators": "lobby-elevators",
-		},
+		"gofunc":"ground",
 		"talkfunc":{
 			"secretary": [lobby_secretary, lobby_secretary_proc]
 		},
@@ -63,10 +105,7 @@ var Loc = {
 		"visited": false,
 		"start": lobbyhallwaystart,
 		"description": "In the hallway there is a large wooden sculpture.\n A woman is standing near a cart. \n There are also some elevators.",
-		"gofunc":{
-			"elevators": "lobby-elevators",
-			"elevator": "lobby-elevators"
-		},
+		"gofunc": "ground",
 		"talkfunc":{
 			"woman": [lobby_woman, lobby_woman_proc]
 		},
@@ -81,11 +120,7 @@ var Loc = {
 		"visited": false,
 		"start": lobbyelevatorstart,
 		"description": lobbyelevatorstart,
-		"gofunc":{
-			"outside": "ground",
-			"hallway": "lobby-hallway",
-			"6": "6-elevators",
-		},
+		"gofunc":"ground",
 		"mapfunc": map_ground
 	},
 	"5" : {},
@@ -93,24 +128,14 @@ var Loc = {
 		"visited": false,
 		"start": six_elev_start,
 		"description": six_elev_start,
-		"gofunc":{
-			"info booth": "6-infobooth",
-			"infobooth": "6-infobooth",
-			"info": "6-infobooth",
-		},
+		"gofunc":"6",
 		"mapfunc": map_six
 	},
 	"6-infobooth":{
 		"visited": false,
 		"start": six_infobooth_start,
 		"description": six_infobooth_start,
-		"gofunc":{
-			"lower elevators": "6-elevators",
-			"upper elevators": "6-upperelevators",
-			"left": "6-upperelevators",
-			"right": "6-pantry",
-			"pantry": "6-pantry",
-		},
+		"gofunc": "6",
 		"talkfunc":{
 			"lady": [infobooth_lady, infobooth_lady_proc]
 		},
@@ -120,36 +145,14 @@ var Loc = {
 		"visited": false,
 		"start": six_upperelevators_start,
 		"description": six_upperelevators_start,
-		"gofunc":{
-			"lower elevators": "6-elevators",
-			"info booth": "6-infobooth",
-			"infobooth": "6-infobooth",
-			"info": "6-infobooth",
-			"right": "6-pantry",
-			"pantry": "6-pantry",
-			"LL2": "ll2",
-			"15": "15",
-			"17": "17",
-			"20": "20",
-			"23": "23",
-			"26": "26",
-			"29": "29"
-		},
+		"gofunc": "6",
 		"mapfunc": map_six
 	},
 	"6-pantry":{
 		"visited": false,
 		"start": six_pantry_start,
 		"description": "you are in the pantry",
-		"gofunc":{
-			"lower elevators": "6-elevators",
-			"upper elevators": "6-upperelevators",
-			"info booth": "6-infobooth",
-			"infobooth": "6-infobooth",
-			"info": "6-infobooth",
-			"mpr": "7",
-			"7": "7"
-		},
+		"gofunc":"6",
 		"lookfunc":{
 			"poster": look_poster,
 		},
@@ -159,10 +162,7 @@ var Loc = {
 		"visited": undefined,
 		"start": seven_start,
 		"description": seven_description,
-		"gofunc":{
-			"6": "6-pantry",
-			"pantry": "6-pantry",
-		}
+		"gofunc": "7",
 	},
 	"17" : {},
 	"22" : {},
@@ -170,11 +170,7 @@ var Loc = {
 		"visited": undefined,
 		"start": twentynine_start,
 		"description": twentynine_description,
-		"gofunc":{
-			"stairs": "28",
-			"down": "28",
-			//rest of elevator floors
-		}
+		"gofunc": "29",
 	},
 	"__generic__":{
 		"visited": undefined,
@@ -212,13 +208,6 @@ player = new Player()
 addText(Text['startgame'] + "\nType \"START\" to start playing");
 
 //addText(Text['poster'])
-
-
-player.location = "6-pantry"
-process("MAP")
-
-
-
 
 
 

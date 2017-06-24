@@ -1,28 +1,10 @@
-var levenshtein = function(a, b){
-    if(!a || !b) return (a || b).length;
-    var m = [];
-    for(var i = 0; i <= b.length; i++){
-        m[i] = [i];
-        if(i === 0) continue;
-        for(var j = 0; j <= a.length; j++){
-            m[0][j] = j;
-            if(j === 0) continue;
-            m[i][j] = b.charAt(i - 1) == a.charAt(j - 1) ? m[i - 1][j - 1] : Math.min(
-                m[i-1][j-1] + 1,
-                m[i][j-1] + 1,
-                m[i-1][j] + 1
-            );
-        }
-    }
-    return m[b.length][a.length];
-};
 
 function startgame(inp){
 	if(State.start){
 		return Text['falsestart']
 	}
 	State.start = true
-	return gofunc(['ground'])
+	return actuallygo('ground')
 }
 
 
@@ -128,12 +110,12 @@ function gofunc(inp){
 		return actuallygo(to);
 	}
 
-	valid_places = Object.keys(Loc[player.location]['gofunc'])
+	valid_places = Object.keys(goLoc[Loc[player.location]['gofunc']])
 	//allow the current place to be valid
 	valid_places.push(player.location)
 	console.log("valid places: " + valid_places)
-	match = findin_rex(inp, valid_places)
-	newloc = Loc[player.location]['gofunc'][match]
+	match = findin(inp, valid_places)
+	newloc = goLoc[Loc[player.location]['gofunc']][match]
 	if(newloc === undefined)
 	{
 		//we cant go there
@@ -155,17 +137,12 @@ function emptyfunc(){
 
 function invalid(inp){
 	out = "The function "+inp[0]+" does not exist.\n" ;
-	min = -1, minw = "";
-	for (var i = 0; i < validfuncs.length; i++) {
-		x = levenshtein(validfuncs[i], inp[0]);
-		if( x < validfuncs[i].length && (min == -1 || x < min)){
-			min = x; minw = validfuncs[i];
-		}
-	}
-	if(min != -1)	{
-		out += "Did you mean " + minw +"?\n"
-	}
-	return out
+    possible = closestText(inp, validfuncs)
+    if(possible === undefined)
+    {
+        return out
+    }
+    return out + "Did you mean " + possible + "?\n"
 }
 
 function helpfunc(inp)
@@ -176,7 +153,7 @@ function helpfunc(inp)
 	// of a json
 	for (var i = 0; i < Object.keys(funcdescrip).length; i++) {
 		out += "" + Object.keys(funcdescrip)[i]
-		out += ":"
+		out += ": "
 		out += funcdescrip[Object.keys(funcdescrip)[i]]
 		out += "\n"
 	}
@@ -235,8 +212,8 @@ function invfunc(inp){
 funcdescrip = {
 	"HELP": "Print the valid functions",
 	"MAP": "Prints where you are in the game",
-	"GO/GOTO": "goes to a location, \"GO BACK\" will go to the last location you were before this room",
-	"TALK": "With no tail:    prints who is around to talk to\n With tail:    initiates conversation with someone",
+	"GO/GOTO": "goes to a location, \n\"GO BACK\" will go to the last location you were before this room",
+	"TALK": "\nWith no tail:    prints who is around to talk to\n With tail:    initiates conversation with someone",
 	"INSPECT/LOOK": "if something is inspectable, will print more of a description of the object/person",
 	"LEAVE/EXIT": "Leave conversation with person",
 	"INV / INVENTORY": "Print the contents of your pockets.",

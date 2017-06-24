@@ -3,7 +3,7 @@ function groundstart(){
 }
 
 function lobbystart(){
-	return "You enter the lobby of the building.\n There are revolving doors behind you, a secretary at a desk and a hallway leading away from you.";
+	return "You enter the lobby of the building.\n There are revolving doors behind you, \na secretary at a desk and \na hallway leading away from you.";
 }
 
 function lobbyhallwaystart(){

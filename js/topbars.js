@@ -17,6 +17,7 @@ $('#login').cssConsole({
 // two line
 $("#two-line").click(function(){
     console.log("two line clicked")
+    process("EXIT")
 });
 
 function set_two_line(sent)
